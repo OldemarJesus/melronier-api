@@ -1,13 +1,12 @@
-name: Create master pull request
+name: Compare master with developer to merge
 on:
   push:
     branches:
       - developer
 jobs:
-  sychMaster:
+  barnch-merge:
+    name: Merge Job
     runs-on: ubuntu-latest
     steps:
       - name: Get latest code
       - uses: actions/checkout@v2
-        with:
-          ref: master
