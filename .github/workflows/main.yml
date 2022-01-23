@@ -26,7 +26,10 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: master
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+     - name: Merge developer -> master
+        uses: devmasx/merge-branch@master
         with:
-          branch: developer
+          type: now
+          from_branch: developer
+          target_branch: master
+          github_token: ${{ github.token }}
