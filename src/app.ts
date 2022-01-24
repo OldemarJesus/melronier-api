@@ -15,7 +15,7 @@ class App {
 
     private middlewares(): void {
         var corsOptions = {
-            origin: 'https://oldemarjesus.github.io/melronier-web/',
+            origin: 'https://oldemarjesus.github.io',
             optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
         }
 
