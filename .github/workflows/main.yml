@@ -25,7 +25,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         with:
-          ref: master
+          ref: developer
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
@@ -34,6 +34,6 @@ jobs:
         uses: devmasx/merge-branch@master
         with:
           type: now
-          from_branch: master
-          target_branch: developer
+          from_branch: developer
+          target_branch: master
           github_token: ${{ secrets.GIT_TOKEN }}
