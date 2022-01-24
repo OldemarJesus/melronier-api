@@ -10,7 +10,7 @@ interface AgendamentoInterface extends Document {
 }
 
 const AgendamentoSchema = new Schema({
-    email: {type: String, required: true, unique: true},
+    email: {type: String, required: true, unique: false},
     name: {type: String, required: true},
     phone: {type: Number, required: true},
     peopleNumber: {type: Number, required: true},
