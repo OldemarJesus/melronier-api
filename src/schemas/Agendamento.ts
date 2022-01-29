@@ -1,13 +1,5 @@
 import {Schema, model, Document} from 'mongoose';
-
-interface AgendamentoInterface extends Document {
-    email ?: String,
-    name ?: String,
-    phone ?: Number,
-    peopleNumber ?: Number,
-    dataEntrada ?: Date,
-    description ?: String
-}
+import AgendamentoInterface from './typeAgendamento';
 
 const AgendamentoSchema = new Schema({
     email: {type: String, required: true, unique: false},

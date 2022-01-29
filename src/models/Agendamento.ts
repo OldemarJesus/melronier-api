@@ -1,5 +1,6 @@
 import AgendamentoS from "../schemas/Agendamento";
 import { Request } from 'express';
+import sendMail from "../services/sendMail";
 
 class Agendamento {
     public async all() {
@@ -8,7 +9,10 @@ class Agendamento {
     }
 
     public async insert(data: Request) {
-        const agendamento = AgendamentoS.create(data.body);
+        const agendamento = await AgendamentoS.create(data.body);
+
+        sendMail(agendamento);
+
         return agendamento;
     }
 
