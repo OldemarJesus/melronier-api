@@ -15,10 +15,12 @@ class App {
     }
 
     private middlewares(): void {
-        var corsOptions = {
-            // origin: 'https://oldemarjesus.github.io',
-            // optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-        }
+        const corsOptions = {
+            "origin": "*",
+            "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+            "preflightContinue": false,
+            "optionsSuccessStatus": 204
+        };
 
         this.express.use(express.json());
         this.express.use(cors(corsOptions));
