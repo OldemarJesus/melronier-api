@@ -5,6 +5,8 @@ const devDto = require('../src/dto/agendamento');
 
 const routes = Router();
 
+routes.get('/', AgendamentoController.home);
+
 routes.get('/agendamentos', AgendamentoController.index);
 
 routes.post('/agendamentos', validateDto(devDto), AgendamentoController.create);
