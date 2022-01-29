@@ -8,6 +8,11 @@ class AgendamentoController {
         return res.json(agendamentos);
     }
 
+    public async home (req: Request, res: Response): Promise<Response> {
+
+        return res.json({msg: "Welcome MelRonnier!"});
+    }
+
     public async create (req: Request, res: Response): Promise<Response> {
         const agendamento = await Agendamento.insert(req);
         return res.json(agendamento);
