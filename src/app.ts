@@ -16,13 +16,13 @@ class App {
 
     private middlewares(): void {
         var corsOptions = {
-            origin: 'https://oldemarjesus.github.io',
-            optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+            // origin: 'https://oldemarjesus.github.io',
+            // optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
         }
 
         this.express.use(express.json());
         this.express.use(cors(corsOptions));
-        // this.express.use(apiErrorHandler);
+        this.express.use(apiErrorHandler);
     }
 
     private database(): void {
