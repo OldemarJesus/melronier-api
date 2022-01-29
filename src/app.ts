@@ -22,7 +22,7 @@ class App {
 
         this.express.use(express.json());
         this.express.use(cors(corsOptions));
-        this.express.use(apiErrorHandler);
+        // this.express.use(apiErrorHandler);
     }
 
     private database(): void {
