@@ -10,17 +10,19 @@ function validateDto(schema: any) {
             const validateBody = await schema.validate(request.body);
             request.body = validateBody;
 
-            let errors: any = [];
-            Agendamento.findOne({ email: request.body.email }).then((agendamento: any) => {
-                if (!agendamento) {
-                    next();
-                    return;
-                };
+            // let errors: any = [];
+            // Agendamento.findOne({ email: request.body.email }).then((agendamento: any) => {
+            //     if (!agendamento) {
+            //         next();
+            //         return;
+            //     };
 
-                errors.push({ msg: 'Email already exists' });
-                return response.status(400).json(errors);
+            //     errors.push({ msg: 'Email already exists' });
+            //     return response.status(400).json(errors);
 
-            })
+            // })
+
+            next();
 
         } catch (error) {
             return response.status(400).json(error);
