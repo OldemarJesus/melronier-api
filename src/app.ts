@@ -2,6 +2,7 @@ import express, { Application } from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import routes from './routes';
+const apiErrorHandler = require('./error/api-error-handler');
 
 class App {
     public express: Application;
@@ -21,6 +22,7 @@ class App {
 
         this.express.use(express.json());
         this.express.use(cors(corsOptions));
+        this.express.use(apiErrorHandler);
     }
 
     private database(): void {

@@ -1,11 +1,12 @@
 import {Router} from 'express';
-
 import AgendamentoController from './controllers/AgendamentoController';
+const validateDto = require('../src/middleware/validate-dto');
+const devDto = require('../src/dto/agendamento');
 
 const routes = Router();
 
 routes.get('/agendamentos', AgendamentoController.index);
 
-routes.post('/agendamentos', AgendamentoController.create);
+routes.post('/agendamentos', validateDto(devDto), AgendamentoController.create);
 
 export default routes;
