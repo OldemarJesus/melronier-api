@@ -6,8 +6,8 @@ async function sendMail(data: AgendamentoInterface) {
     // Only needed if you don't have a real mail account for testing
     // let testAccount = await nodemailer.createTestAccount();
     let testAccount = {
-        user: ' melronie.pt@gmail.com',
-        pass: 'MelRonnier2022'
+        user: process.env.GMAIL_EMAIL,
+        pass: process.env.GMAIL_PASS
     }
 
     // create reusable transporter object using the default SMTP transport
