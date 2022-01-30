@@ -1,4 +1,4 @@
-import express, { Application } from 'express';
+import express, { Application, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import routes from './routes';
@@ -15,16 +15,14 @@ class App {
     }
 
     private middlewares(): void {
-        const corsOptions = {
-            "origin": "*",
-            "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-            "preflightContinue": false,
-            "optionsSuccessStatus": 204
-        };
-
         this.express.use(express.json());
-        this.express.use(cors(corsOptions));
+        this.express.use(cors());
         this.express.use(apiErrorHandler);
+        this.express.use(function (req: Request, res: Response, next: NextFunction) {
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+            next();
+        });
     }
 
     private database(): void {
