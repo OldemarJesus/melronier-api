@@ -29,7 +29,6 @@ app.use(morgan('combined'));
 
 // defining an endpoint to return all ads
 app.get('/', (req, res) => {
-    console.log(process.env);
   res.send(ads);
 });
 
