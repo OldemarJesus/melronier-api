@@ -38,7 +38,7 @@ module.exports = function sentEmail(data) {
             +'<td>'+data.email+'</td>'
             +'<td>'+data.phone+'</td>'
             +'<td>'+data.people+'</td>'
-            +'<td>'+data.date+' '+date.time+'</td>'
+            +'<td>'+data.date+' '+data.time+'</td>'
             +'</tr>'
             +'</tbody>'
             +'</table>'
