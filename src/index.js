@@ -82,12 +82,16 @@ app.post('/send-email', (req, res) => {
     }
 
     if(errors.length > 0){
-        return res.send({errors: errors});
+        return res
+        .status(422)
+        .send({errors: errors});
     }
 
     sentEmail(data);
 
-    res.send([
+    res
+    .status(200)
+    .send([
         {
             message: "Mail Sent!"
         }

@@ -19,8 +19,31 @@ module.exports = function sentEmail(data) {
         from: 'melronieweb@gmail.com',
         to: data.email,
         subject: 'Bem-vindo (a) à Mel Ronie ❤️',
-        html: '<h1>O Seu pedido foi registado ' + data.name + '! <br>' +
-            ' </h1><p>Obrigado pela escolha, volte sempre!</p>'
+        html: '<h1>O Seu pedido foi registado ' + data.name + '! <br>'
+            +'<br>'
+            +'<h3>Detalhe do pedido</h3>'
+            +'<table>'
+            +'<thead>'
+            +'<tr>'
+            +'<th>Requerente</th>'
+            +'<th>Email</th>'
+            +'<th>Telemóvel</th>'
+            +'<th>Quantidade de Pessoas</th>'
+            +'<th>Data de Entrada</th>'
+            +'</tr>'
+            +'</thead>'
+            +'<tbody>'
+            +'<tr>'
+            +'<td>'+data.name+'</td>'
+            +'<td>'+data.email+'</td>'
+            +'<td>'+data.phone+'</td>'
+            +'<td>'+data.people+'</td>'
+            +'<td>'+data.date+' '+date.time+'</td>'
+            +'</tr>'
+            +'</tbody>'
+            +'</table>'
+            +'<br>'
+            +' </h1><p>Obrigado pela escolha, volte sempre!</p>'
     }
 
     transporter.sendMail(mailOptions, function (error, info) {
